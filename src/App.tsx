@@ -1,25 +1,35 @@
-import React, { useState } from 'react'
-import logo from './logo.svg'
+import React from 'react'
 import './App.css'
-import { Popup } from './components/Popup'
-import { Button } from '@mui/material'
+import { BaseTable } from '@wrapped/components/BaseTable/BaseTable'
+import { Container } from '@mui/material'
+import { RowData } from '@wrapped/components/BaseTable/Row'
+
+
+const data: RowData[] = [
+  {
+    name: 'Vasa',
+    description: 'Typek',
+  },
+  {
+    name: 'Radek',
+    description: 'Vasa je vetsi typek',
+  },
+  {
+    name: 'Franta',
+    description: 'Vasa je vetsi typek',
+  },
+]
 
 
 function App () {
-  const [open, setOpen] = useState<boolean>(false)
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo"/>
-        <Button variant={'outlined'} onClick={() => setOpen(true)}>
-                  Open Modal
-        </Button>
-        <Popup
-          open={open}
-          closeModal={() => setOpen(false)}
-          maxWidth={'lg'}
-          fullWidth
-        />
+        <Container maxWidth="sm">
+          <BaseTable
+            data={data}
+          />
+        </Container>
       </header>
     </div>
   )
