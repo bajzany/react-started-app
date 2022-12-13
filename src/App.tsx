@@ -1,38 +1,31 @@
 import React from 'react'
 import './App.css'
-import { BaseTable } from '@wrapped/components/BaseTable/BaseTable'
-import { Container } from '@mui/material'
-import { RowData } from '@wrapped/components/BaseTable/Row'
+import { Box, Container, Paper, ThemeProvider } from '@mui/material'
+import { Theme } from '@wrapped/themeOveride/Theme'
+import { TopBar } from '@wrapped/components/TopBar/TopBar'
+import { Router } from '@wrapped/components/Router/Router'
 
 
-const data: RowData[] = [
-  {
-    name: 'Vasa',
-    description: 'Typek',
-  },
-  {
-    name: 'Radek',
-    description: 'Vasa je vetsi typek',
-  },
-  {
-    name: 'Franta',
-    description: 'Vasa je vetsi typek',
-  },
-]
-
-
-function App () {
+export const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Container maxWidth="sm">
-          <BaseTable
-            data={data}
-          />
+    <ThemeProvider theme={Theme}>
+      <Box className={'body'} sx={{ flexGrow: 1 }}>
+        <Container
+          maxWidth={'md'}
+        >
+          <TopBar/>
+          <Paper
+            elevation={1}
+            square
+            sx={{
+              minHeight: 800,
+              padding: 3,
+            }}
+          >
+            <Router/>
+          </Paper>
         </Container>
-      </header>
-    </div>
+      </Box>
+    </ThemeProvider>
   )
 }
-
-export default App

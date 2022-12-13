@@ -130,9 +130,7 @@
   },
   "scripts": {
     "start": "CHOKIDAR_USEPOLLING=true DISABLE_ESLINT_PLUGIN=true node scripts/start.js",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "node --max-old-space-size=4096 scripts/build.js"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "1.17.8",

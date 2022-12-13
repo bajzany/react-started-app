@@ -1,0 +1,23 @@
+version: '3'
+services:
+  server:
+    container_name: react_started_app
+    hostname: react_started_app
+    restart: always
+    env_file:
+      - .env
+    build:
+      args:
+        BUILD_ENV: development
+      context: ./
+      dockerfile: ./docker/Dockerfile
+    volumes:
+      - ./:/app:rw
+      - ./data:/app/data
+    ports:
+      - "850:80"
+    networks:
+      - reactStartedApp
+    privileged: true
+networks:
+  reactStartedApp:

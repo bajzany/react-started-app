@@ -2,7 +2,6 @@
   "compilerOptions": {
     "paths": {
       "@wrapped/*": ["./src/*"],
-      "@rcore/*": ["./src/modules/@rcore/*"],
     }
   }
 }
