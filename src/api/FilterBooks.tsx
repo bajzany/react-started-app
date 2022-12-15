@@ -7,6 +7,7 @@ export interface FilterBookResponse {
 
 export interface IBook {
   title: string
+  isbn13: string
 }
 
 export const FilterBooks = async (search: string): Promise<FilterBookResponse> => {
