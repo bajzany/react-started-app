@@ -13,8 +13,8 @@ import {
 } from '@mui/material'
 import { Inbox, Menu } from '@mui/icons-material'
 import logo from '@wrapped/images/logo.svg'
-import {Routes} from '@wrapped/components/Router/Router'
-import {history} from "@wrapped/components/Router/History";
+import { Routes } from '@wrapped/components/Router/Router'
+import { history } from '@wrapped/components/Router/History'
 
 
 export const TopBar = () => {

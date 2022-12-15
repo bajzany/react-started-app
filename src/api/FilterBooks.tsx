@@ -1,4 +1,3 @@
-
 export interface FilterBookResponse {
   total: string
   page: string

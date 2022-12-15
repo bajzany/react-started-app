@@ -1,4 +1,4 @@
-import React, {memo, useEffect, useMemo, useState} from 'react'
+import React, { memo, useEffect, useState } from 'react'
 import { Box, Checkbox, Grid, Typography } from '@mui/material'
 import { FilterBookResponse, FilterBooks, IBook } from '@wrapped/api/FilterBooks'
 
@@ -12,8 +12,6 @@ export const BookPage = () => {
   })
 
   const [selected, setSelected] = useState<string[]>([])
-
-
   const isSelected = (book: IBook): boolean => {
     return !!selected.find((value) => value === book.isbn13)
   }
@@ -27,17 +25,20 @@ export const BookPage = () => {
     setBooks(response)
   }
 
-  console.log('selected', selected)
   const onChangeSelected = (select: boolean, value: IBook) => {
     if (select) {
-      setSelected([
-        ...selected,
-        value.isbn13,
-      ])
+      setSelected((prevState) => (
+        [
+          ...prevState,
+          value.isbn13,
+        ]
+      ))
     } else {
-      setSelected([
-        ...selected.filter((item) => item !== value.isbn13),
-      ])
+      setSelected((prevState) => (
+        [
+          ...prevState.filter((item) => item !== value.isbn13),
+        ]
+      ))
     }
   }
 
@@ -60,7 +61,6 @@ export const BookPage = () => {
           </Grid>
         ))}
       </Grid>
-
     </Box>
   )
 }
@@ -73,16 +73,10 @@ interface IItem extends IBook {
 const ItemMemo = memo<IItem>((props) => (
   <Item {...props}/>
 ), (prevProps, nextProps) => {
-  console.log('prevProps', prevProps)
-
-  // console.log(prevProps.checked)
-  // console.log(nextProps.checked)
-
   return (prevProps.checked === nextProps.checked)
 })
 
 const Item = (props: IItem) => {
-  console.log('RENDER', props.title)
   return (
     <Grid container alignItems={'center'}>
       <Grid item>
